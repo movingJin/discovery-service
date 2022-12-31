@@ -1,0 +1,25 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-service
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+#  us-east-1:
+#    availabilityZones=us-east-1c,us-east-1d,us-east-1e:
+
+logging:
+  file:
+    name: ./log/spring.log  # 로깅 파일 위치
+  level:  # 각 package 별로 로깅 레벨을 지정
+    root : error
+  logback:
+    rollingpolicy:
+      max-history: 7
+      max-file-size: 10MB
